@@ -1,22 +1,21 @@
 plugins {
     id("java")
-    id("io.papermc.paperweight.userdev") version "2.0.0-beta.17" apply false
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.18" apply false
     id("com.gradleup.shadow") version "9.0.0-beta16"
-    id("org.gradle.maven-publish")
 }
 
 allprojects {
 
-    group = "dev.wuason"
-    version = "0.5"
+    group = "ruben_artz.toast"
+    version = "0.6"
 
     apply(plugin = "java")
-    apply(plugin = "org.gradle.maven-publish")
 
     repositories {
         mavenCentral()
         mavenLocal()
         //maven("https://oss.sonatype.org/content/repositories/snapshots")
+
         maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") // For Spigot
         maven("https://repo.papermc.io/repository/maven-public/") // For Paper
     }
@@ -36,7 +35,7 @@ dependencies {
     implementation(project(":bukkit"))
 
     allprojects.filter { ":nms:" in it.path }.forEach {
-        val config = if (it.path.contains("v1_16", true) || it.path.contains("v1_21_R5", true)) {
+        val config = if (it.path.contains("v1_16", true)) {
             "default"
         } else {
             io.papermc.paperweight.util.constants.REOBF_CONFIG
@@ -49,7 +48,6 @@ dependencies {
 tasks {
 
     shadowJar {
-        //simple toast
         archiveFileName.set("SimpleToast-${rootProject.version}.jar")
         archiveClassifier.set("")
     }
@@ -65,16 +63,5 @@ java {
 
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            groupId = rootProject.group.toString()
-            artifactId = rootProject.name
-            version = rootProject.version.toString()
-            artifact(tasks.shadowJar)
-        }
     }
 }

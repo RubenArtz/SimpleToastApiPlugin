@@ -1,0 +1,11 @@
+#                                                           Developed by Ruben_Artz
+#
+#                                                     (PLAY.STN-STUDIOS.DEV @ (C) 2018-2025)
+
+name: 'ToastAPI'
+version: '${version}'
+main: 'ruben_artz.toast.Main'
+authors: [
+  'Ruben_Artz', 'Wuason6x9'
+]
+website: 'https://github.com/RubenArtz/SimpleToastApi'
