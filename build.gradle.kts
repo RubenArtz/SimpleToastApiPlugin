@@ -7,7 +7,7 @@ plugins {
 allprojects {
 
     group = "ruben_artz.toast"
-    version = "0.6"
+    version = "0.7"
 
     apply(plugin = "java")
 
@@ -48,7 +48,7 @@ dependencies {
 tasks {
 
     shadowJar {
-        archiveFileName.set("SimpleToast-${rootProject.version}.jar")
+        archiveFileName.set("Toast API.jar")
         archiveClassifier.set("")
     }
 
