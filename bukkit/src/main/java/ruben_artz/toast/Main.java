@@ -13,14 +13,20 @@ import ruben_artz.toast.utils.Updater;
 @Getter
 public class Main extends JavaPlugin {
     public static final int MINECRAFT_1_16_PROTOCOL_VERSION = 16;
-
-    public String latestversion;
-    String version = getDescription().getVersion();
-    static String prefix = "&8[&9Toast API&8]&f ";
-
     @Getter
     @Setter
     public static Environment environment;
+    static String prefix = "&8[&9Toast API&8]&f ";
+    public String latestversion;
+    String version = getDescription().getVersion();
+
+    public static void sendMessage(String text) {
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + text));
+    }
+
+    public static boolean isVersionAtLeast_1_16() {
+        return getEnvironment().getMinecraftVersion() > MINECRAFT_1_16_PROTOCOL_VERSION;
+    }
 
     @Override
     public void onEnable() {
@@ -50,13 +56,5 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         Updater.shutdown();
-    }
-
-    public static void sendMessage(String text) {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + text));
-    }
-
-    public static boolean isVersionAtLeast_1_16() {
-        return getEnvironment().getMinecraftVersion() > MINECRAFT_1_16_PROTOCOL_VERSION;
     }
 }

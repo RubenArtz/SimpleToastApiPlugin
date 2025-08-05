@@ -1,10 +1,10 @@
 package ruben_artz.toast.libs;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import ruben_artz.toast.libs.nms.EToastType;
 import ruben_artz.toast.libs.nms.IToastWrapper;
 import ruben_artz.toast.libs.utils.EMinecraftVersion;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class SimpleToast {
     private static final IToastWrapper toastWrapper;

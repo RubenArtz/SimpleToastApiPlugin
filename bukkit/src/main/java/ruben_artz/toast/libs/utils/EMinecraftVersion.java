@@ -1,5 +1,6 @@
 package ruben_artz.toast.libs.utils;
 
+import lombok.Getter;
 import org.bukkit.Bukkit;
 
 import java.util.Objects;
@@ -49,7 +50,13 @@ public enum EMinecraftVersion {
      * This variable is used to track the version of an object,
      * typically for purposes such as version control, data compatibility checks,
      * and to maintain state consistency across different instances.
+     * -- GETTER --
+     *  Retrieves the version number.
+     *
+     * @return the current version number as an integer.
+
      */
+    @Getter
     private final int versionNumber;
     /**
      * The version of the Network Management System (NMS) being used.
@@ -70,75 +77,6 @@ public enum EMinecraftVersion {
     EMinecraftVersion(int versionNumber, NMSVersion nmsVersion) {
         this.versionNumber = versionNumber;
         this.nmsVersion = Objects.requireNonNullElse(nmsVersion, NMSVersion.UNSUPPORTED);
-    }
-
-    /**
-     * Retrieves the current NMS (Net Minecraft Server) version.
-     *
-     * @return the NMSVersion representing the current version.
-     */
-    public NMSVersion getNMSVersion() {
-        return nmsVersion;
-    }
-
-    /**
-     * Retrieves the version number.
-     *
-     * @return the current version number as an integer.
-     */
-    public int getVersionNumber() {
-        return versionNumber;
-    }
-
-    /**
-     * Retrieves the version name of the current enum constant.
-     * The version name is derived by removing the "V" character and replacing underscores with dots.
-     *
-     * @return A String representing the version name of the enum constant, with "V" removed and underscores replaced by dots.
-     */
-    public String getVersionName() {
-        return name().replace("V", "").replace("_", ".");
-    }
-
-    /**
-     * Checks if the current Minecraft version is at least the specified version.
-     *
-     * @param otherVersion The MinecraftVersion object to compare against.
-     * @return true if the current version number is greater than or equal to the otherVersion's version number, false otherwise.
-     */
-    public boolean isAtLeast(EMinecraftVersion otherVersion) {
-        return versionNumber >= otherVersion.versionNumber;
-    }
-
-    /**
-     * Compares the current Minecraft version with another version to determine if it is less than the other version.
-     *
-     * @param otherVersion The MinecraftVersion object to compare with.
-     * @return true if the current version is less than the other version; false otherwise.
-     */
-    public boolean isLessThan(EMinecraftVersion otherVersion) {
-        return versionNumber < otherVersion.versionNumber;
-    }
-
-    /**
-     * Compares the current MinecraftVersion object with another MinecraftVersion object.
-     *
-     * @param otherVersion the MinecraftVersion object to compare against.
-     * @return true if the current version number is greater than the specified version number, false otherwise.
-     */
-    public boolean isGreaterThan(EMinecraftVersion otherVersion) {
-        return versionNumber > otherVersion.versionNumber;
-    }
-
-    /**
-     * Compares the current version with the specified version to check if the current version is at most
-     * the specified version.
-     *
-     * @param otherVersion the MinecraftVersion instance to compare with the current version.
-     * @return true if the current version is less than or equal to the specified version, false otherwise.
-     */
-    public boolean isAtMost(EMinecraftVersion otherVersion) {
-        return versionNumber <= otherVersion.versionNumber;
     }
 
     /**
@@ -202,9 +140,70 @@ public enum EMinecraftVersion {
     }
 
     /**
+     * Retrieves the current NMS (Net Minecraft Server) version.
+     *
+     * @return the NMSVersion representing the current version.
+     */
+    public NMSVersion getNMSVersion() {
+        return nmsVersion;
+    }
+
+    /**
+     * Retrieves the version name of the current enum constant.
+     * The version name is derived by removing the "V" character and replacing underscores with dots.
+     *
+     * @return A String representing the version name of the enum constant, with "V" removed and underscores replaced by dots.
+     */
+    public String getVersionName() {
+        return name().replace("V", "").replace("_", ".");
+    }
+
+    /**
+     * Checks if the current Minecraft version is at least the specified version.
+     *
+     * @param otherVersion The MinecraftVersion object to compare against.
+     * @return true if the current version number is greater than or equal to the otherVersion's version number, false otherwise.
+     */
+    public boolean isAtLeast(EMinecraftVersion otherVersion) {
+        return versionNumber >= otherVersion.versionNumber;
+    }
+
+    /**
+     * Compares the current Minecraft version with another version to determine if it is less than the other version.
+     *
+     * @param otherVersion The MinecraftVersion object to compare with.
+     * @return true if the current version is less than the other version; false otherwise.
+     */
+    public boolean isLessThan(EMinecraftVersion otherVersion) {
+        return versionNumber < otherVersion.versionNumber;
+    }
+
+    /**
+     * Compares the current MinecraftVersion object with another MinecraftVersion object.
+     *
+     * @param otherVersion the MinecraftVersion object to compare against.
+     * @return true if the current version number is greater than the specified version number, false otherwise.
+     */
+    public boolean isGreaterThan(EMinecraftVersion otherVersion) {
+        return versionNumber > otherVersion.versionNumber;
+    }
+
+    /**
+     * Compares the current version with the specified version to check if the current version is at most
+     * the specified version.
+     *
+     * @param otherVersion the MinecraftVersion instance to compare with the current version.
+     * @return true if the current version is less than or equal to the specified version, false otherwise.
+     */
+    public boolean isAtMost(EMinecraftVersion otherVersion) {
+        return versionNumber <= otherVersion.versionNumber;
+    }
+
+    /**
      * The NMSVersion enum defines various versions of Minecraft NMS (Net Minecraft Server).
      * Each enum constant is associated with an integer value that signifies the version.
      */
+    @Getter
     public enum NMSVersion {
         V1_16_R3(0),
         V1_17_R1(1),
@@ -226,6 +225,10 @@ public enum EMinecraftVersion {
 
         /**
          * Represents the integer value associated with a specific Minecraft NMS (Net Minecraft Server) version.
+         * -- GETTER --
+         *  Gets the integer value associated with the version.
+         *
+
          */
         private final int version;
 
@@ -297,13 +300,5 @@ public enum EMinecraftVersion {
             return name().replace("V", "");
         }
 
-        /**
-         * Gets the integer value associated with the version.
-         *
-         * @return the version number as an integer.
-         */
-        public int getVersion() {
-            return version;
-        }
     }
 }

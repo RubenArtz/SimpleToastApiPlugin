@@ -1,6 +1,7 @@
 ### GRADLE (**build.gradle**)
 
 Add the repository to your build.gradle file:
+
 ```gradle
 plugins {
     id 'io.github.goooler.shadow' version '8.1.8'
@@ -25,6 +26,7 @@ tasks {
 ### GRADLE KOTLIN DSL (**build.gradle.kts**)
 
 Add the repository to your build.gradle.kts file:
+
 ```kotlin
 plugins {
     java
@@ -47,6 +49,7 @@ tasks.shadowJar {
 ### MAVEN (**.pom**)
 
 Add the repository to your pom.xml file:
+
 ```xml
 <build>
     <plugins>

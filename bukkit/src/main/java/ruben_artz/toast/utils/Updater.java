@@ -50,7 +50,8 @@ public class Updater {
             if (!currentVersion.equals(latestVersion)) {
                 notifyUpdateAvailable(latestVersion);
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
     public static String fetchLatestVersion() throws Exception {
