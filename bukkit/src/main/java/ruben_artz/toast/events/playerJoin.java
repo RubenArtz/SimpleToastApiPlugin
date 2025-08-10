@@ -1,6 +1,5 @@
 package ruben_artz.toast.events;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +19,8 @@ public class playerJoin implements Listener {
             return;
         }
 
-        Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> checkForUpdates(player), 100L);
+
+        Main.getScheduler().runTaskLaterAsynchronously(() -> checkForUpdates(player), 100L);
     }
 
     private void checkForUpdates(Player player) {

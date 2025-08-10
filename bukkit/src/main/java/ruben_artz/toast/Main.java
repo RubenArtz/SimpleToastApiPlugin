@@ -1,5 +1,7 @@
 package ruben_artz.toast;
 
+import com.github.Anon8281.universalScheduler.UniversalScheduler;
+import com.github.Anon8281.universalScheduler.scheduling.schedulers.TaskScheduler;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -13,6 +15,9 @@ import ruben_artz.toast.utils.Updater;
 @Getter
 public class Main extends JavaPlugin {
     public static final int MINECRAFT_1_16_PROTOCOL_VERSION = 16;
+
+    @Getter
+    public static TaskScheduler scheduler;
     @Getter
     @Setter
     public static Environment environment;
@@ -31,6 +36,8 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         environment = new Environment();
+
+        scheduler = UniversalScheduler.getScheduler(this);
 
         if (!isVersionAtLeast_1_16()) {
             sendMessage("&cThis plug-in only works in versions 1.16.5-1.21.");

@@ -7,7 +7,7 @@ plugins {
 allprojects {
 
     group = "ruben_artz.toast"
-    version = "0.7"
+    version = "0.7.1"
 
     apply(plugin = "java")
 
@@ -18,6 +18,8 @@ allprojects {
 
         maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") // For Spigot
         maven("https://repo.papermc.io/repository/maven-public/") // For Paper
+
+        maven("https://jitpack.io")
     }
 
     tasks.withType<JavaCompile> {
@@ -44,10 +46,18 @@ dependencies {
     }
 }
 
+project(":bukkit") {
+    dependencies {
+        implementation("com.github.Anon8281:UniversalScheduler:0.1.7")
+    }
+}
+
 
 tasks {
 
     shadowJar {
+        relocate("com.github.Anon8281.universalScheduler", "ruben_artz.toast.universalScheduler");
+
         archiveFileName.set("Toast API.jar")
         archiveClassifier.set("")
     }

@@ -1,7 +1,7 @@
 package ruben_artz.toast.utils;
 
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
+import com.github.Anon8281.universalScheduler.UniversalRunnable;
+import com.github.Anon8281.universalScheduler.scheduling.tasks.MyScheduledTask;
 import ruben_artz.toast.Main;
 
 import java.io.BufferedReader;
@@ -15,14 +15,14 @@ public class Updater {
     private static final String UPDATE_URL = "https://stn-studios.dev/versions/toast.txt";
     private static final int TIMEOUT = 1250;
 
-    private static BukkitTask updater;
+    private static MyScheduledTask task;
 
     public static void launch() {
-        if (updater != null) {
-            updater.cancel();
+        if (task != null) {
+            task.cancel();
         }
 
-        updater = new BukkitRunnable() {
+        task = new UniversalRunnable() {
             @Override
             public void run() {
                 Updater.getUpdater();
@@ -31,11 +31,11 @@ public class Updater {
     }
 
     public static void shutdown() {
-        if (updater != null) {
-            updater.cancel();
+        if (task != null) {
+            task.cancel();
         }
 
-        updater = null;
+        task = null;
     }
 
     public static void getUpdater() {
