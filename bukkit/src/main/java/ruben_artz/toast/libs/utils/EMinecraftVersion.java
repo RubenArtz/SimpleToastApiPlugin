@@ -33,6 +33,8 @@ public enum EMinecraftVersion {
     V1_21_6(24, NMSVersion.V1_21_R5),
     V1_21_7(25, NMSVersion.V1_21_R5),
     V1_21_8(26, NMSVersion.V1_21_R5),
+    V1_21_9(27, NMSVersion.V1_21_R6),
+    V1_21_10(28, NMSVersion.V1_21_R6),
     UNSUPPORTED(-1, NMSVersion.UNSUPPORTED);
 
     /**
@@ -53,7 +55,6 @@ public enum EMinecraftVersion {
      * -- GETTER --
      *  Retrieves the version number.
      *
-     * @return the current version number as an integer.
 
      */
     @Getter
@@ -221,6 +222,7 @@ public enum EMinecraftVersion {
         V1_21_R3(13),
         V1_21_R4(14),
         V1_21_R5(15),
+        V1_21_R6(16),
         UNSUPPORTED(-1);
 
         /**

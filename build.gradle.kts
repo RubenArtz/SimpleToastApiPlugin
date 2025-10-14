@@ -1,13 +1,13 @@
 plugins {
     id("java")
-    id("io.papermc.paperweight.userdev") version "2.0.0-beta.18" apply false
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.19" apply false
     id("com.gradleup.shadow") version "9.0.0-beta16"
 }
 
 allprojects {
 
     group = "ruben_artz.toast"
-    version = "0.7.1"
+    version = "0.8.1"
 
     apply(plugin = "java")
 
@@ -56,7 +56,7 @@ project(":bukkit") {
 tasks {
 
     shadowJar {
-        relocate("com.github.Anon8281.universalScheduler", "ruben_artz.toast.universalScheduler");
+        relocate("com.github.Anon8281.universalScheduler", "ruben_artz.toast.universalScheduler")
 
         archiveFileName.set("Toast API.jar")
         archiveClassifier.set("")
