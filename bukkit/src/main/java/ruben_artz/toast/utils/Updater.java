@@ -27,7 +27,7 @@ public class Updater {
             public void run() {
                 Updater.getUpdater();
             }
-        }.runTaskTimer(plugin, 0L, 5 * 60 * 60 * 20L);
+        }.runTaskTimerAsynchronously(plugin, 0L, 5 * 60 * 60 * 20L);
     }
 
     public static void shutdown() {
