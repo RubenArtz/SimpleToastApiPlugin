@@ -1,10 +1,10 @@
 #                                                           Developed by Ruben_Artz
 #
-#                                                     (PLAY.STN-STUDIOS.DEV @ (C) 2018-2025)
+#                                                     (MC.ARTZSTUDIO.DEV @ (C) 2018-2026)
 
 name: 'ToastAPI'
 version: '${version}'
-main: 'ruben_artz.toast.Main'
+main: 'artzstudios.dev.toast.Main'
 authors: [
   'Ruben_Artz', 'Wuason6x9'
 ]

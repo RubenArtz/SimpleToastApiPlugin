@@ -6,8 +6,8 @@ plugins {
 
 allprojects {
 
-    group = "ruben_artz.toast"
-    version = "0.9"
+    group = "artzstudios.dev.toast"
+    version = "0.9.1"
 
     apply(plugin = "java")
 
@@ -56,7 +56,7 @@ project(":bukkit") {
 tasks {
 
     shadowJar {
-        relocate("com.github.Anon8281.universalScheduler", "ruben_artz.toast.universalScheduler")
+        relocate("com.github.Anon8281.universalScheduler", "artzstudios.dev.toast.universalScheduler")
 
         archiveFileName.set("Toast API.jar")
         archiveClassifier.set("")
