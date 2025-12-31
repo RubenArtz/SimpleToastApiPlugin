@@ -4,7 +4,7 @@
 
 name: 'ToastAPI'
 version: '${version}'
-main: 'artzstudios.dev.toast.Main'
+main: 'artzstudio.dev.toast.Main'
 authors: [
   'Ruben_Artz', 'Wuason6x9'
 ]
