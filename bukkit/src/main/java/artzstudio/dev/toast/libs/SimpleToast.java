@@ -12,7 +12,7 @@ public class SimpleToast {
     static {
         EMinecraftVersion version = EMinecraftVersion.getServerVersionSelected();
         try {
-            toastWrapper = (IToastWrapper) Class.forName(String.format("artzstudios.dev.toast.libs.nms.v%s.ToastImpl", version.getNMSVersion().getVersionName())).getDeclaredConstructors()[0].newInstance();
+            toastWrapper = (IToastWrapper) Class.forName(String.format("artzstudio.dev.toast.libs.nms.v%s.ToastImpl", version.getNMSVersion().getVersionName())).getDeclaredConstructors()[0].newInstance();
         } catch (Exception e) {
             throw new RuntimeException("Fatal error occurred", e);
         }
